@@ -132,7 +132,8 @@ async def async_update_options(hass: HomeAssistant, entry: ConfigEntry) -> None:
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Unload a config entry."""
-    ims_entity_prevplatform = hass.data[DOMAIN][entry.entry_id][IMS_PLATFORM]
+    entry_data = hass.data[DOMAIN][entry.entry_id]
+    ims_entity_prevplatform = entry_data[IMS_PLATFORM]
 
     unload_ok = await hass.config_entries.async_unload_platforms(
         entry, _platforms_from_selection(ims_entity_prevplatform)
@@ -141,8 +142,17 @@ async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     _LOGGER.info(f"Unloading IMS Weather. Successful: {unload_ok}")
 
     if unload_ok:
-        update_listener = hass.data[DOMAIN][entry.entry_id][UPDATE_LISTENER]
+        update_listener = entry_data[UPDATE_LISTENER]
         update_listener()
+
+        # Drop the (now shut-down) coordinator from the location cache so the next
+        # async_setup_entry creates a fresh one instead of reusing this dead one
+        # (its debouncer ignores all refreshes once shutdown has been requested).
+        weather_coordinator = entry_data[ENTRY_WEATHER_COORDINATOR]
+        unique_location = (
+            f"ims-{weather_coordinator.language}-{weather_coordinator.city}"
+        )
+        hass.data[DOMAIN].pop(unique_location, None)
 
         hass.data[DOMAIN].pop(entry.entry_id)
 
