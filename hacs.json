@@ -1,5 +1,5 @@
 {
-	"name": "Israel Meteorological Service (IMS)",
+	"name": "IMS Weather (Local fork)",
 	"render_readme": true,
 	"country": "IL",
 	"homeassistant": "2025.4.0"
