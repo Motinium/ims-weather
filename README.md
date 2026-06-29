@@ -1,14 +1,17 @@
 
-# ims-custom-component
+# IMS Weather (Local fork)
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-41BDF5.svg)](https://github.com/hacs/integration)
 [![GitHub Release][releases-shield]][releases]
 [![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE)
 
 ![Project Maintenance][maintenance-shield]
-[![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
 
+> Personal fork of [GuyKh/ims-custom-component](https://github.com/GuyKh/ims-custom-component).
+> The domain is renamed to `ims_local` so it can be installed independently of the
+> original integration, and it includes a fix for the coordinator not refreshing
+> after a config-entry reload. Credit for the original integration goes to
+> [@GuyKh](https://github.com/GuyKh) and [@t0mer](https://github.com/t0mer).
 
 IMS custom component for HomeAssistant allows you to integrate the Israel Meteorological Service easily and with minimal configuration.
 With IMS, you can get the following information for the current status (Updates every hour) and future weather forecast:
@@ -19,7 +22,7 @@ With IMS, you can get the following information for the current status (Updates 
 * Rain status
 * Weather Alerts
 
-[![IMS custom component](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/ims.png?raw=true "IMS custom component")](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/ims.png?raw=true "IMS custom component")
+[![IMS custom component](https://github.com/Motinium/ims-weather/blob/main/screenshots/ims.png?raw=true "IMS custom component")](https://github.com/Motinium/ims-weather/blob/main/screenshots/ims.png?raw=true "IMS custom component")
 
 
 
@@ -33,30 +36,35 @@ And also, the forecast data for today and the next four days in six hours interv
 * Temperature.
 
 
-[![IMS custom component](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/ims_attributes.png?raw=true "IMS custom component")](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/ims_attributes.png?raw=true "IMS custom component")
+[![IMS custom component](https://github.com/Motinium/ims-weather/blob/main/screenshots/ims_attributes.png?raw=true "IMS custom component")](https://github.com/Motinium/ims-weather/blob/main/screenshots/ims_attributes.png?raw=true "IMS custom component")
 
 
 ### Installation
-The IMS custom component can be installed from HACS default repository.
 
-**Restart** the Home Assistant instance to load ims integration before moving on
+This fork is installed as a HACS **custom repository**:
+
+1. In HACS, open the three-dot menu → **Custom repositories**.
+2. Add `https://github.com/Motinium/ims-weather` with category **Integration**.
+3. Download the integration from HACS.
+
+**Restart** the Home Assistant instance to load the integration before moving on.
 
 Finally, use the UI to add the integration:
 
 Under settings, go to "Devices & Services"
 
-[![IMS custom component](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/settings-devices.png?raw=true "IMS custom component")](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/settings-devices.png?raw=true "IMS custom component")
+[![IMS custom component](https://github.com/Motinium/ims-weather/blob/main/screenshots/settings-devices.png?raw=true "IMS custom component")](https://github.com/Motinium/ims-weather/blob/main/screenshots/settings-devices.png?raw=true "IMS custom component")
 
 In the lower left cornet click on "Add Integration" button
-[![IMS custom component](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/add-integration.png?raw=true "IMS custom component")](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/add-integration.png?raw=true "IMS custom component")
+[![IMS custom component](https://github.com/Motinium/ims-weather/blob/main/screenshots/add-integration.png?raw=true "IMS custom component")](https://github.com/Motinium/ims-weather/blob/main/screenshots/add-integration.png?raw=true "IMS custom component")
 
 In the list of integrations, search for IMS:
 
-[![IMS custom component](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/select-brand.png?raw=true "IMS custom component")](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/select-brand.png?raw=true "IMS custom component")
+[![IMS custom component](https://github.com/Motinium/ims-weather/blob/main/screenshots/select-brand.png?raw=true "IMS custom component")](https://github.com/Motinium/ims-weather/blob/main/screenshots/select-brand.png?raw=true "IMS custom component")
 
 Enter the relevant parameters (Location and Language) and click sthe submit button in the bottom:
 
-[![IMS custom component](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/submit-settings.png?raw=true "IMS custom component")](https://github.com/GuyKh/ims-custom-component/blob/main/screenshots/submit-settings.png?raw=true "IMS custom component")
+[![IMS custom component](https://github.com/Motinium/ims-weather/blob/main/screenshots/submit-settings.png?raw=true "IMS custom component")](https://github.com/Motinium/ims-weather/blob/main/screenshots/submit-settings.png?raw=true "IMS custom component")
 
 
 The Languages can be one of two:
@@ -221,12 +229,9 @@ The city code must be one of the codes in the following table:
 | 277| Hay-Bar Yotvata|
 | 278| Coral Beach|
 
-[buymecoffee]: https://www.buymeacoffee.com/guykh
-[buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
-[commits-shield]: https://img.shields.io/github/commit-activity/y/guykh/ims-custom-component.svg?style=for-the-badge
-[commits]: https://github.com/guykh/ims-custom-component/commits/main
-[license-shield]: https://img.shields.io/github/license/guykh/ims-custom-component.svg?style=for-the-badge
-[maintenance-shield]: https://img.shields.io/badge/maintainer-Guy%20Khmelnitsky%20%40GuyKh-blue.svg?style=for-the-badge
-[releases-shield]: https://img.shields.io/github/release/guykh/ims-custom-component.svg?style=for-the-badge
-[releases]: https://github.com/guykh/ims-custom-component/releases
-
+[commits-shield]: https://img.shields.io/github/commit-activity/y/Motinium/ims-weather.svg?style=for-the-badge
+[commits]: https://github.com/Motinium/ims-weather/commits/main
+[license-shield]: https://img.shields.io/github/license/Motinium/ims-weather.svg?style=for-the-badge
+[maintenance-shield]: https://img.shields.io/badge/maintainer-%40Motinium-blue.svg?style=for-the-badge
+[releases-shield]: https://img.shields.io/github/release/Motinium/ims-weather.svg?style=for-the-badge
+[releases]: https://github.com/Motinium/ims-weather/releases

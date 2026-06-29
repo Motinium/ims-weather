@@ -1,7 +1,7 @@
 {
     "domain": "ims_local",
     "name": "IMS Weather (Local fork)",
-    "codeowners": ["@GuyKh", "@t0mer", "@Motinium"],
+    "codeowners": ["@Motinium"],
     "config_flow": true,
     "documentation": "https://github.com/Motinium/ims-weather",
     "iot_class": "cloud_polling",
