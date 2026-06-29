@@ -7,11 +7,9 @@
 
 ![Project Maintenance][maintenance-shield]
 
-> Personal fork of [GuyKh/ims-custom-component](https://github.com/GuyKh/ims-custom-component).
-> The domain is renamed to `ims_local` so it can be installed independently of the
-> original integration, and it includes a fix for the coordinator not refreshing
-> after a config-entry reload. Credit for the original integration goes to
-> [@GuyKh](https://github.com/GuyKh) and [@t0mer](https://github.com/t0mer).
+> The domain is renamed to `ims_local` so it can be installed independently of any
+> other IMS integration, and it includes a fix for the coordinator not refreshing
+> after a config-entry reload.
 
 IMS custom component for HomeAssistant allows you to integrate the Israel Meteorological Service easily and with minimal configuration.
 With IMS, you can get the following information for the current status (Updates every hour) and future weather forecast:
